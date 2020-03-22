@@ -4,39 +4,62 @@ import "./Lists.css";
 function Lists() {
     return (
         <section>
-
-            <div className="d-flex">
-                <div className="col mr-3">
+            <div className="row m-0 justify-content-center">
+                <div className="col-sm-6 mr-sm-3">
                     <div class="todotitle">
-                        <p> To Do</p>
+                        <p> To Do (4)</p>
                     </div>
-                    <div className="row list-group-item d-flex">
-                        <div className="col-1">
-                            <button type="button" class="btn btn-warning">Done</button>
+                    <div className="row d-flex p-0">
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button type="button" class="btn">✔</button>
                         </div>
-                        <div className="col-9">
+                        <div className="col-8 p-2 list-group-item">
                             Decide on flowers
                         </div>
-                        <div className="col-1">
-                            bin
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button className="btn"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>
 
-                    <div className="row list-group-item">
-                        Book photographer
+                    <div className="row d-flex p-0">
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button type="button" class="btn">✔</button>
                         </div>
+                        <div className="col-8 p-2 list-group-item">
+                            Book photographer
+                        </div>
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button className="btn"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
 
-                    <div className="row list-group-item">
-                        Write guest list
+                    <div className="row d-flex p-0">
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button type="button" class="btn">✔</button>
                         </div>
+                        <div className="col-8 p-2 list-group-item">
+                            Write guest list
+                        </div>
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button className="btn"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
 
-                    <div className="row list-group-item">
-                        Design invitations
+                    <div className="row d-flex p-0">
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button type="button" class="btn">✔</button>
                         </div>
+                        <div className="col-8 p-2 list-group-item">
+                            Design invitations
+                        </div>
+                        <div className="col-2 px-0 pt-1 pb-1">
+                            <button className="btn"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="col">
-                    <div class="todotitle">
+                <div className="col-sm-5 mr-sm-2 pb-5">
+                    <div className="todotitle pt-3 pt-sm-0">
                         <p> Complete</p>
                     </div>
                     <div className="row list-group-item disabled">
@@ -55,31 +78,6 @@ function Lists() {
             </div>
         </section>
 
-
-
-        // <div className="col-sm-6">
-        //                 <div className="todotitle">
-        //                     <p> To Do</p>
-        //                 </div>
-        //                 <ul className="list-group">
-        //                     <li className="list-group-item">Decide on flowers</li>
-        //                     <li className="list-group-item">Book photographer</li>
-        //                     <li className="list-group-item">Write guest list</li>
-        //                     <li className="list-group-item">Design invitations</li>
-        //                 </ul>
-        //             </div>
-
-
-        //             <div className="col-sm-6">
-        //                 <div className="todotitle">
-        //                     <p> Complete</p>
-        //                 </div>
-        //                 <div className="list-group">
-        //                     <a href="#" className="list-group-item disabled">Research photographers</a>
-        //                     <a href="#" className="list-group-item disabled">Book the venue</a>
-        //                     <a href="#" className="list-group-item disabled">Decide on theme</a>
-        //                 </div>
-        //             </div>
     )
 }
 export default Lists;
