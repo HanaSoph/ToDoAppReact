@@ -85,11 +85,6 @@ function App() {
                   text={task.text}
                   urgent={task.urgent} />
               })}
-
-              {/* <Tasks text="Decide on flowers" urgent={false} />
-              <Tasks text="Book photographer" urgent={true} />
-              <Tasks text="Write guest list" urgent={false} />
-              <Tasks text="Design invitations" urgent={false} /> */}
             </div>
 
 
@@ -105,12 +100,8 @@ function App() {
                   urgent={task.urgent} />
               })}
 
-              {/* <Completed text="Research photographers" />
-              <Completed text="Book the venue" />
-              <Completed text="Decide on theme" /> */}
             </div>
 
-            {/* <Lists /> */}
           </div>
         </div>
       </div>
