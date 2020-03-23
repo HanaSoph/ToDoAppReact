@@ -9,6 +9,9 @@ function Lists() {
                     <div class="todotitle">
                         <p> To Do (4)</p>
                     </div>
+
+{/* TO DO TASK LIST */}
+
                     <div className="row d-flex p-0">
                         <div className="col-2 px-0 pt-1 pb-1">
                             <button type="button" class="btn">✔</button>
@@ -57,6 +60,8 @@ function Lists() {
                         </div>
                     </div>
                 </div>
+
+{/* COMPLETED TASKS LISTS */}
 
                 <div className="col-sm-5 mr-sm-2 pb-5">
                     <div className="todotitle pt-3 pt-sm-0">
