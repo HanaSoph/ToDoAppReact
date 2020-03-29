@@ -1,12 +1,25 @@
 import React from "react";
 
+
 function Tasks(props) {
     //props = {text: "Book the photographer", urgent: true completed: true}
+    
+    const handleDeleteClick = () => {
+        console.log(props.id);
+        props.deleteTaskFunc(props.id);
+    };
+
+    const handleCompleteClick = () => {
+        console.log("Complete button was clicked");
+        console.log(props.id);
+        props.completeTaskFunc(props.id);
+    };
+
     return (
             <div className="row row d-flex p-0">
 
                 <div className="col-2 px-0 pt-1 pb-1">
-                    <button type="button" class="btn">✔</button>
+                    <button type="button" className="btn" onClick={handleCompleteClick}>✔</button>
                 </div>
 
                 <div className="col-8 p-2 list-group-item">
@@ -15,7 +28,7 @@ function Tasks(props) {
                 </div>
 
                 <div className="col-2 px-0 pt-1 pb-1">
-                    <button className="btn"><i class="fa fa-trash"></i></button>
+                    <button className="btn"><i className="fa fa-trash" onClick={handleDeleteClick}></i></button>
                 </div>
 
                 
