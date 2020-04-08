@@ -19,7 +19,12 @@ function Tasks(props) {
             <div className="row row d-flex p-0">
 
                 <div className="col-2 px-0 pt-1 pb-1">
-                    <button type="button" className="btn" onClick={handleCompleteClick}>✔</button>
+                    <button 
+                    type="button" 
+                    className="btn" 
+                    onClick={handleCompleteClick}>
+                        ✔
+                    </button>
                 </div>
 
                 <div className="col-8 p-2 list-group-item">
@@ -28,7 +33,12 @@ function Tasks(props) {
                 </div>
 
                 <div className="col-2 px-0 pt-1 pb-1">
-                    <button className="btn"><i className="fa fa-trash" onClick={handleDeleteClick}></i></button>
+                    <button className="btn">
+                        <i
+                            className="fa fa-trash"
+                            onClick={handleDeleteClick}>
+                        </i>
+                    </button>
                 </div>
 
                 

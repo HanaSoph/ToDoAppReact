@@ -1,0 +1,14 @@
+
+/* FADE OF OLD COMPLETED TASKS - the older it is the more transparent the task */
+
+.heavy {
+    opacity: 0.9;
+  }
+
+.medium {
+  opacity: 0.5;
+}
+
+.light {
+    opacity: 0.2;
+  }

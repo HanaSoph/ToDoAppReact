@@ -6,13 +6,12 @@ import Tasks from './Tasks/Tasks';
 import Completed from './Completed/Completed'
 
 function App() {
-  //0 - this number is 1 piece of state I want to keep track of
-  // const [counter, setCounter] = useState(0);
 
   const [tasks, setTasks] = useState([
     {
       text: "Decide on flowers",
       completed: false,
+      completedDate: null,
       urgent: false,
       id: 1
     },
@@ -20,6 +19,7 @@ function App() {
     {
       text: "Book photographer",
       completed: false,
+      completedDate: null,
       urgent: true,
       id: 2
     },
@@ -27,6 +27,7 @@ function App() {
     {
       text: "Write guest list",
       completed: false,
+      completedDate: null,
       urgent: false,
       id: 3
     },
@@ -34,6 +35,7 @@ function App() {
     {
       text: "Design invitations",
       completed: false,
+      completedDate: null,
       urgent: false,
       id: 4
     },
@@ -41,6 +43,7 @@ function App() {
     {
       text: "Research photographers",
       completed: true,
+      completedDate: new Date('2020-01-03'),
       urgent: false,
       id: 5
     },
@@ -48,6 +51,7 @@ function App() {
     {
       text: "Book the venue",
       completed: true,
+      completedDate: new Date('2020-01-20'),
       urgent: false,
       id: 6
     },
@@ -55,6 +59,7 @@ function App() {
     {
       text: "Decide theme",
       completed: true,
+      completedDate: new Date('2020-03-15'),
       urgent: false,
       id: 7
     },
@@ -81,9 +86,22 @@ function App() {
     const newTasks = tasks.map(task => {
       if (task.id === id) {
         task.completed = true
+        task.completedDate = new Date()
       }
       return task
     })
+
+    // SORTING COMPLETED BY OLDEST TO NEWEST
+    newTasks.sort(function (a, b) {
+      let dateA = new Date(a.completedDate), dateB = new Date(b.completedDate);
+      return dateB - dateA;
+    })
+
+    // if the length of the completed list is > 7 then remove the oldest item
+
+    if (newTasks.length > 7) {
+      newTasks.pop()
+    }
 
     setTasks(newTasks)
   }
@@ -126,7 +144,7 @@ function App() {
                   urgent={task.urgent}
                   id={task.id}
                   deleteTaskFunc={deleteTask}
-                  />
+                />
               })}
             </div>
 
