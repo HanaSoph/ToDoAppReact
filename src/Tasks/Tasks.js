@@ -5,13 +5,10 @@ function Tasks(props) {
     //props = {text: "Book the photographer", urgent: true completed: true}
     
     const handleDeleteClick = () => {
-        console.log(props.id);
         props.deleteTaskFunc(props.id);
     };
 
     const handleCompleteClick = () => {
-        console.log("Complete button was clicked");
-        console.log(props.id);
         props.completeTaskFunc(props.id);
     };
 
@@ -29,7 +26,7 @@ function Tasks(props) {
 
                 <div className="col-8 p-2 list-group-item">
                     {props.text}
-                    {props.urgent === true ? " - !" : " "}
+                    {props.urgent === 1 ? " - !" : " "}
                 </div>
 
                 <div className="col-2 px-0 pt-1 pb-1">

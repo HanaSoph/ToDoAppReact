@@ -5,7 +5,7 @@ function Completed(props) {
     return (
         <div className="row list-group-item disabled">
             {props.text}
-            {props.urgent === true ? " - !" : " "}
+            {props.urgent === 1 ? " - !" : " "}
         </div>
     );
 }
