@@ -6,14 +6,6 @@ function TaskInput(props) {
     const [taskText, setTaskText] = useState("");
     const [urgent, setUrgent] = useState(false);
 
-    const handleTextChange = (event) => {
-        setTaskText(event.target.value);
-    }
-
-    const handleUrgent = (event) => {
-        setUrgent(event.target.checked);
-    }
-
     const handleAddTask = () => {
         if (taskText === "") {
             alert("Please enter a task");
@@ -35,7 +27,7 @@ function TaskInput(props) {
                             aria-label="Add Task"
                             aria-describedby="button-addon2" 
                             value={taskText} 
-                            onChange={handleTextChange} />
+                            onChange={(event) => setTaskText(event.target.value)} />
                         <div className="input-group-append">
                             <button
                                 className="btn btn-outline-secondary"
@@ -52,7 +44,7 @@ function TaskInput(props) {
                     className="form-check-input" 
                     id="urgentCheck" 
                     checked={urgent} 
-                    onChange={handleUrgent} />
+                    onChange={(event) => setUrgent(event.target.checked)} />
                     <label 
                     className="form-check-label" 
                     htmlFor="urgentCheck">

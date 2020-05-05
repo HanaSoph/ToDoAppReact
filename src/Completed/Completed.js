@@ -2,10 +2,12 @@ import React from "react";
 import "./Completed.css";
 
 function Completed(props) {
+    const { text, urgent } = props;
+
     return (
         <div className="row list-group-item disabled">
-            {props.text}
-            {props.urgent === 1 ? " - !" : " "}
+            {text}
+            {urgent === 1 ? " - !" : " "}
         </div>
     );
 }

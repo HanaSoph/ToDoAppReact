@@ -11,26 +11,19 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Fetch tasks from Backend (GET)
     axios.get("https://q92guqntq6.execute-api.eu-west-1.amazonaws.com/dev/tasks")
       .then(response => {
         console.log("Success", response.data);
-        let newTasks = response.data
-        
-        // SORTING COMPLETED BY OLDEST TO NEWEST
-        newTasks.sort(function (a, b) {
-          let dateA = new Date(a.Date), dateB = new Date(b.Date);
-          return dateB - dateA;
-        })
-        // if the length of the completed list is > 7 then remove the oldest item
-        newTasks.slice(7);
+        const newTasks = response.data
+
+        newTasks.sort((a, b) => sortNewToOld(a, b))
+
         setTasks(newTasks);
       })
       .catch(err => {
         console.log("Error", err);
       });
     // the array would normally contain values that may change, and React would run the above code WHEN that value changes
-    // "Array of dependencies"
   }, []);
 
   const addNewTask = (text, urgent) => {
@@ -41,14 +34,12 @@ function App() {
     })
       .then(response => {
         const newTask = response.data;
-        const newTasks = [...tasks, newTask];
+        const newTasks = [newTask, ...tasks];
         setTasks(newTasks);
       })
       .catch(err => {
         console.log("Error creating task", err);
       });
-
-
   };
 
   const setTaskComplete = (id) => {
@@ -66,16 +57,7 @@ function App() {
           return task;
         })
 
-        // SORTING COMPLETED BY OLDEST TO NEWEST
-        newTasks.sort(function (a, b) {
-          let dateA = new Date(a.Date), dateB = new Date(b.Date);
-          return dateB - dateA;
-        })
-
-        // if the length of the completed list is > 7 then remove the oldest item
-        if (newTasks.length > 7) {
-          newTasks.pop()
-        }
+        newTasks.sort((a, b) => sortNewToOld(a, b))
 
         setTasks(newTasks);
       })
@@ -83,7 +65,6 @@ function App() {
         console.log("Error updating task", err);
       })
   };
-
 
   const deleteTask = (id) => {
     axios.delete(`https://q92guqntq6.execute-api.eu-west-1.amazonaws.com/dev/tasks/${id}`)
@@ -102,8 +83,15 @@ function App() {
       })
   }
 
-  const completedTasks = tasks.filter(task => task.Completed === 1)
+  // These 2 lines filter the items into the correct list (To Do or Completed) and limits Completed to 7 items
+  const completedTasks = tasks.filter(task => task.Completed === 1).slice(0, 7)
   const todoTasks = tasks.filter(task => task.Completed === 0)
+
+  // These lines orders the Completed list from newest to oldest
+  const sortNewToOld = (a, b) => {
+    let dateA = new Date(a.Date), dateB = new Date(b.Date);
+    return dateB - dateA;
+  }
 
   return (
     <div className="App">
@@ -134,7 +122,6 @@ function App() {
               })}
             </div>
 
-
             <div className="col-sm-5 mr-sm-2 pb-5">
               <div className="todotitle pt-3 pt-sm-0">
                 <p> Completed</p>
@@ -146,12 +133,10 @@ function App() {
                     key={task.TaskId}
                     text={task.Description}
                     urgent={task.Urgent}
-                    id={task.TaskId}
                   />
                 );
               })}
             </div>
-
           </div>
         </div>
       </div>
