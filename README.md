@@ -1,6 +1,8 @@
 # The Big Day To Do List 
 An app for Brides and Grooms with a big list of things to do for their big day!
 
+Click here to view the app: https://hanasoph.github.io/ToDoAppReact/
+
 ## Introduction
 This simple to do list application was a project built as part of a 15-week full-stack web development course. 
 
