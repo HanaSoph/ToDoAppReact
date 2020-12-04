@@ -1,5 +1,9 @@
 # The Big Day To Do List 
-An app for Brides and Grooms with a big list of things to do for their big day!
+An app for Brides and Grooms with a big list of things to do for their big day! The web app is fully responsive, and designed by me.
+
+![screenshot of The Big Day To Do List Web App](/images/bigdaytodolistscreenshot.png?raw=true "The Big Day To Do List Web App")
+
+It integrates with a backend, available here: https://github.com/HanaSoph/ToDoAppBackend
 
 ## Introduction
 This simple to do list application was a project built as part of a 15-week full-stack web development course. 
